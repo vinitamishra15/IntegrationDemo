@@ -6,8 +6,7 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
+pool: Default
 
 variables:
   SERVICENOW_INSTANCE: 'https://dev212832.service-now.com/'
