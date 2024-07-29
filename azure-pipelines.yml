@@ -9,11 +9,15 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  SERVICENOW_INSTANCE: 'https://dev212832.service-now.com/'
+  SERVICENOW_USERNAME: 'vinita.mishra.15@gmail.com'
+  SERVICENOW_PASSWORD: 'Tech@1161'
+
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    sn-cicd deploy --instance $(SERVICENOW_INSTANCE) --username $(SERVICENOW_USERNAME) --password $(SERVICENOW_PASSWORD) --source ./src --update-set my_update_set
+  displayName: 'Deploy to ServiceNow'
